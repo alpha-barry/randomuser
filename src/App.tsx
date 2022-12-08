@@ -6,41 +6,42 @@ import { removeUser } from './app/store';
 
 function App() {
 
-  const a:any = useSelector((state:any) => state);
+  const users:any = useSelector((state:any) => state);
   const dispatch = useDispatch();
 
-  const t = a.user.favorities.map((v:any) => {
-    return(<Card sx={{ minWidth: 275 }} key={v.uuid}>
+  const usersElement = users.user.favorities.map((user:any) => {
+    return(<Card sx={{ minWidth: 275 }} key={user.uuid}>
       <CardContent>
         <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-          Prénom: {v.first}
+          Prénom: {user.first}
         </Typography>
         <Typography variant="h5" component="div">
-          Nom: {v.last}
+          Nom: {user.last}
         </Typography>
         <Typography sx={{ mb: 1.5 }} color="text.secondary">
-          Adresse: {v.addrNumber + " " + v.addrName}
+          Adresse: {user.addrNumber + " " + user.addrName}
         </Typography>
         <Typography sx={{ mb: 1.5 }} color="text.secondary">
-          Ville: {v.postcode + ", " + v.city}
+          Ville: {user.postcode + ", " + user.city}
         </Typography>
         <Typography sx={{ mb: 1.5 }} color="text.secondary">
-          Pays: {v.country}
+          Pays: {user.country}
         </Typography>
       </CardContent>
       <CardActions>
-        <button aria-label="add to favorites" onClick={() => dispatch(removeUser(v.uuid))}>
+        <button aria-label="add to favorites" onClick={() => dispatch(removeUser(user.uuid))}>
           retirer
         </button>
       </CardActions>
     </Card>);
   });
+  
   return (
       <div className="App">
         <header className="App-header">
           <Counter />
           <div className='favorite'>
-            {t}
+            {usersElement}
           </div>
         </header>
       </div>

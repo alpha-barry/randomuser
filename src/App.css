@@ -37,4 +37,7 @@ body {
 
 #generator {
   background-color: bisque;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
