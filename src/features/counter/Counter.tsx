@@ -26,7 +26,11 @@ export function Counter() {
         </Typography>
       </CardContent>
       <CardActions>
-        <IconButton aria-label="add to favorites" onClick={() => dispatch(addUser({ a: "C", b: "A" }))}>
+        <IconButton aria-label="add to favorites" onClick={() => dispatch(addUser({
+              first: randomUser.name.first,
+              last: randomUser.name.last,
+              uuid: randomUser.login.uuid
+           }))}>
           <FavoriteIcon />
         </IconButton>
       </CardActions>
