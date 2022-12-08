@@ -22,13 +22,24 @@ export function Counter() {
           Nom: {randomUser.name.last}
         </Typography>
         <Typography sx={{ mb: 1.5 }} color="text.secondary">
-          adjective
+          Adresse: {randomUser.location.street.number + " " + randomUser.location.street.name}
+        </Typography>
+        <Typography sx={{ mb: 1.5 }} color="text.secondary">
+          Ville: {randomUser.location.postcode + ", " + randomUser.location.city}
+        </Typography>
+        <Typography sx={{ mb: 1.5 }} color="text.secondary">
+          Pays: {randomUser.location.country}
         </Typography>
       </CardContent>
       <CardActions>
         <IconButton aria-label="add to favorites" onClick={() => dispatch(addUser({
               first: randomUser.name.first,
               last: randomUser.name.last,
+              addrNumber: randomUser.location.street.number,
+              addrName: randomUser.location.street.name,
+              postcode: randomUser.location.postcode,
+              city: randomUser.location.city,
+              country: randomUser.location.country,
               uuid: randomUser.login.uuid
            }))}>
           <FavoriteIcon />

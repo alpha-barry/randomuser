@@ -19,7 +19,13 @@ function App() {
           Nom: {v.last}
         </Typography>
         <Typography sx={{ mb: 1.5 }} color="text.secondary">
-          adjective
+          Adresse: {v.addrNumber + " " + v.addrName}
+        </Typography>
+        <Typography sx={{ mb: 1.5 }} color="text.secondary">
+          Ville: {v.postcode + ", " + v.city}
+        </Typography>
+        <Typography sx={{ mb: 1.5 }} color="text.secondary">
+          Pays: {v.country}
         </Typography>
       </CardContent>
       <CardActions>
