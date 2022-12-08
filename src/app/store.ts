@@ -3,13 +3,16 @@ import { randomUser } from '../services/randomuser';
 import { persistStore, persistReducer } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
 
+const initialState: string[] = [];
 
 const favoritUserSlice = createSlice({
   name: "user",
-  initialState: [{a: "s"}],
+  initialState,
   reducers: {
     addUser: (state, action) => {
-      state.push(action.payload);
+      if (!state.some((val:any) => val.uuid === action.payload.uuid)) {
+        state.push(action.payload);
+      }
     },
     removeUser: (state, action) => {
       state = state.filter((user: any) => user.uuid !== action.payload);
