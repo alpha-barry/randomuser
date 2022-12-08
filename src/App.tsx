@@ -1,4 +1,4 @@
-import { Counter } from './features/counter/Counter';
+import { Counter } from './features/user/Counter';
 import './App.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { Card, CardActions, CardContent, IconButton, Typography } from '@mui/material';
@@ -30,7 +30,7 @@ function App() {
       </CardContent>
       <CardActions>
         <button aria-label="add to favorites" onClick={() => dispatch(removeUser(v.uuid))}>
-          ret
+          retirer
         </button>
       </CardActions>
     </Card>);
