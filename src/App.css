@@ -1,10 +1,16 @@
+body {
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+}
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.favorite {
+  width: 50%;
+  height: 100vh;
+  background-color: antiquewhite;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -13,27 +19,21 @@
   }
 }
 
+.randomUser {
+  background-color: aqua;
+  overflow: scroll;
+  height: 100vh;
+}
+
 .App-header {
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
 }
 
-.App-link {
-  color: rgb(112, 76, 182);
-}
-
-@keyframes App-logo-float {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(10px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
+#generator {
+  background-color: bisque;
 }

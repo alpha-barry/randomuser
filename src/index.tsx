@@ -6,17 +6,20 @@ import { randomUser } from './services/randomuser'
 import { ApiProvider } from '@reduxjs/toolkit/dist/query/react';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { PersistGate } from 'redux-persist/integration/react';
+import { persistStore } from 'redux-persist';
 import './index.css';
 
 const container = document.getElementById('root')!;
 const root = createRoot(container);
+const persistor = persistStore(store);
 
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <ApiProvider api={randomUser}>
+    <PersistGate loading={null} persistor={persistor}>
         <App />
-      </ApiProvider>
+        </PersistGate>
     </Provider>
   </React.StrictMode>
 );
