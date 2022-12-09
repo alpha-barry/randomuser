@@ -1,12 +1,33 @@
-import { Button, TextField } from '@mui/material';
+import { Button, Card, IconButton, TextField } from '@mui/material';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import { addUser } from '../../app/favoriteUserSlice';
 import { useGetRandomUserQuery } from '../../services/randomuser'
 import User from './User'
+import { useDispatch } from 'react-redux';
 
 export function UserList() {
   const { data, error, isLoading, refetch } = useGetRandomUserQuery();
-
-  let randomUsers = data?.results.map((randomUser: any) => {
-    return (<User user={randomUser} key={randomUser.login.uuid}></User>);
+  const dispatch = useDispatch();
+  
+  const randomUsers = data?.results.map((randomUser: any) => {
+    const us = {
+      first: randomUser.name.first,
+      last: randomUser.name.last,
+      addrNumber: randomUser.location.street.number,
+      addrName: randomUser.location.street.name,
+      postcode: randomUser.location.postcode,
+      city: randomUser.location.city,
+      country: randomUser.location.country,
+      uuid: randomUser.login.uuid
+    }
+    return (
+      <Card sx={{ minWidth: 275 }} key={randomUser.login.uuid}>
+        <User user={us}></User>
+        <IconButton aria-label="add to favorites" onClick={() => dispatch(addUser(us))}>
+          <FavoriteIcon />
+        </IconButton>
+      </Card>
+    );
   });
 
   return (
@@ -27,4 +48,8 @@ export function UserList() {
       ) : null}
     </div>
   );
+}
+
+function dispatch(arg0: any): void {
+  throw new Error('Function not implemented.');
 }

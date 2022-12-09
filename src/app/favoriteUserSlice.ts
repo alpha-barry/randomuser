@@ -8,6 +8,7 @@ const favoriteUserSlice = createSlice({
   initialState,
   reducers: {
     addUser: (state, action) => {
+      console.log(action.payload)
       if (!state.some((val: UserType) => val.uuid === action.payload.uuid)) {
         state.push(action.payload);
       }
