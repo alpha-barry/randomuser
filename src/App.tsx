@@ -1,8 +1,8 @@
-import { Counter } from './features/user/Counter';
+import { UserList } from './features/user/UserList';
 import './App.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { Card, CardActions, CardContent, IconButton, Typography } from '@mui/material';
-import { removeUser } from './app/store';
+import { Card, CardActions, CardContent, Typography } from '@mui/material';
+import { removeUser } from './app/favoriteUserSlice';
 
 function App() {
 
@@ -35,15 +35,13 @@ function App() {
       </CardActions>
     </Card>);
   });
-  
+
   return (
       <div className="App">
-        <header className="App-header">
-          <Counter />
+          <UserList />
           <div className='favorite'>
             {usersElement}
           </div>
-        </header>
       </div>
   );
 }

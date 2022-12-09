@@ -1,25 +1,8 @@
-import { configureStore, ThunkAction, Action, createSlice, combineReducers } from '@reduxjs/toolkit';
-import { randomUser } from '../services/randomuser';
-import { persistStore, persistReducer } from 'redux-persist'
+import { configureStore, combineReducers } from '@reduxjs/toolkit';
+import { persistReducer } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
-
-const initialState: string[] = [];
-
-const favoritUserSlice = createSlice({
-  name: "user",
-  initialState,
-  reducers: {
-    addUser: (state, action) => {
-      if (!state.some((val:any) => val.uuid === action.payload.uuid)) {
-        state.push(action.payload);
-      }
-    },
-    removeUser: (state, action) => {
-      state = state.filter((user: any) => user.uuid !== action.payload);
-      return state;
-    }
-  }
-});
+import { randomUser } from '../services/randomuser';
+import FavoriteUserSliceReducer from './favoriteUserSlice'
 
 const persistConfig = {
   key: "root",
@@ -27,7 +10,7 @@ const persistConfig = {
 }
 
 const reducer = combineReducers({
-  favorities: favoritUserSlice.reducer
+  favorities: FavoriteUserSliceReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, reducer);
@@ -40,13 +23,3 @@ export const store = configureStore({
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({serializableCheck: false}).concat(randomUser.middleware),
 });
-
-export const {addUser, removeUser} = favoritUserSlice.actions;
-export type AppDispatch = typeof store.dispatch;
-export type RootState = ReturnType<typeof store.getState>;
-export type AppThunk<ReturnType = void> = ThunkAction<
-  ReturnType,
-  RootState,
-  unknown,
-  Action<string>
->;
