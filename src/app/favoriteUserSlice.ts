@@ -1,18 +1,19 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { UserType } from "../features/user/UserType";
 
-const initialState: string[] = [];
+const initialState: UserType[] = [];
 
 const favoriteUserSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
     addUser: (state, action) => {
-      if (!state.some((val:any) => val.uuid === action.payload.uuid)) {
+      if (!state.some((val: UserType) => val.uuid === action.payload.uuid)) {
         state.push(action.payload);
       }
     },
     removeUser: (state, action) => {
-      state = state.filter((user: any) => user.uuid !== action.payload);
+      state = state.filter((user: UserType) => user.uuid !== action.payload);
       return state;
     }
   }

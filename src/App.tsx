@@ -3,13 +3,14 @@ import './App.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { Card, CardActions, CardContent, Typography } from '@mui/material';
 import { removeUser } from './app/favoriteUserSlice';
+import { UserType } from "./features/user/UserType";
 
 function App() {
 
   const users:any = useSelector((state:any) => state);
   const dispatch = useDispatch();
 
-  const usersElement = users.user.favorities.map((user:any) => {
+  const usersElement = users.user.favorities.map((user:UserType) => {
     return(<Card sx={{ minWidth: 275 }} key={user.uuid}>
       <CardContent>
         <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
@@ -41,7 +42,7 @@ function App() {
           <UserList />
           <div className='favorite'>
             <div>
-              <h2>Mes favories</h2>
+              <h2>Mes favoris</h2>
             </div>
             <div className='favoriteList'>
               {usersElement}
