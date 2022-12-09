@@ -8,7 +8,7 @@ import { useDispatch } from 'react-redux';
 export function UserList() {
   const { data, error, isLoading, refetch } = useGetRandomUserQuery();
   const dispatch = useDispatch();
-  
+
   const randomUsers = data?.results.map((randomUser: any) => {
     const us = {
       first: randomUser.name.first,
@@ -48,8 +48,4 @@ export function UserList() {
       ) : null}
     </div>
   );
-}
-
-function dispatch(arg0: any): void {
-  throw new Error('Function not implemented.');
 }
