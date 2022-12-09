@@ -1,6 +1,4 @@
-import { Card, CardContent, Typography, CardActions, IconButton } from "@mui/material";
-import { useDispatch } from 'react-redux';
-import { addUser } from "../../app/favoriteUserSlice";
+import {CardContent, Typography, CardActions } from "@mui/material";
 
 export default function User(props: any) {
 

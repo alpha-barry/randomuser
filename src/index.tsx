@@ -2,8 +2,6 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { store } from './app/store';
-import { randomUser } from './services/randomuser'
-import { ApiProvider } from '@reduxjs/toolkit/dist/query/react';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { PersistGate } from 'redux-persist/integration/react';

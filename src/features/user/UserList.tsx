@@ -1,4 +1,4 @@
-import { Button, Card, IconButton, TextField } from '@mui/material';
+import { Button, Card, IconButton } from '@mui/material';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { addUser } from '../../app/favoriteUserSlice';
 import { useGetRandomUserQuery } from '../../services/randomuser'
