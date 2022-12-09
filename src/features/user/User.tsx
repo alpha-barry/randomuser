@@ -3,6 +3,17 @@ import { useDispatch } from 'react-redux';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { addUser } from "../../app/favoriteUserSlice";
 
+type Us = {
+  first: string,
+  last: string,
+  addrNumber: string,
+  addrName: string,
+  postcode: string,
+  city: string,
+  country: string,
+  uuid: string
+}
+
 export default function User(props: any) {
   const dispatch = useDispatch();
 

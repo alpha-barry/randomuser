@@ -40,7 +40,12 @@ function App() {
       <div className="App">
           <UserList />
           <div className='favorite'>
-            {usersElement}
+            <div>
+              <h2>Mes favories</h2>
+            </div>
+            <div className='favoriteList'>
+              {usersElement}
+            </div>
           </div>
       </div>
   );

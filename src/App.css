@@ -9,20 +9,34 @@
 }
 
 .randomUser {
-  background-color: aqua;
-  overflow: scroll;
-  height: 90%;
+  height: 100%;
   width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+.userList {
+  overflow: scroll;
 }
 
 .favorite {
   width: 50%;
   height: 100vh;
   background-color: antiquewhite;
-  overflow-x: scroll;
   border: 1px solid black;
+  display: flex;
+  flex-direction: column;
 }
 
+.favoriteList {
+  overflow-x: scroll;
+}
+
+#userCtrl {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -32,6 +46,5 @@
 
 #generator {
   background-color: bisque;
-  position: fixed;
-  z-index: 1;
+  width: 50%;
 }
