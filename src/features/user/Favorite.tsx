@@ -9,22 +9,16 @@ export default function Favorite() {
     const dispatch = useDispatch();
 
     const usersElement = users.user.favorities.map((user: UserType) => {
-        console.log(user)
         return (<Card sx={{ minWidth: 275 }} key={user.uuid}>
             <User user={user}></User>
             <CardActions>
                 <button aria-label="add to favorites" onClick={() => dispatch(removeUser(user.uuid))}>
                     retirer
                 </button>
-            </CardActions>*
+            </CardActions>
         </Card>);
     });
 
-    /*<CardActions>
-          <button aria-label="add to favorites" onClick={() => dispatch(removeUser(user.uuid))}>
-            retirer
-          </button>
-        </CardActions>*/
     return (
         <div>
             {usersElement}
